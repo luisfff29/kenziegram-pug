@@ -1,19 +1,19 @@
 const express = require("express");
 const fs = require("fs");
 const multer = require("multer");
-const ejs = require("ejs");
+const pug = require("pug");
 
 const path = "./public/uploads";
 const app = express();
 const port = 3000;
 templates = {
     titleHeader: "Kenziegram Project",
-    title: "<h1>KenzieGram</h1>",
-    posted: false,
+    title: "KenzieGram",
 };
 const upload = multer({ dest: path });
 
-app.set("view engine", "ejs");
+app.set("view engine", "pug");
+app.set("views", "./views");
 
 app.use(express.static("./public"));
 
@@ -22,15 +22,13 @@ fs.readdir(path, (err, files) => {
 });
 
 app.get("/", (req, res) => {
-    templates.posted = false;
     res.render("index", templates);
 });
 
 app.post("/upload", upload.single("myImage"), (req, res, next) => {
-    templates.posted = true;
     templates.pics.unshift(req.file.filename);
     templates.pic_uploaded = req.file.filename;
-    res.render("index", templates);
+    res.render("upload", templates);
 });
 
 app.listen(port, () => {
