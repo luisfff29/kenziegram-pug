@@ -1,6 +1,6 @@
 # KenzieGram
 
-Instagram clone using [Node.js](https://nodejs.org/en/), [Express.js](http://expressjs.com/), [Multer](https://www.npmjs.com/package/multer), and [EJS](https://www.npmjs.com/package/ejs) package
+Instagram clone using [Node.js](https://nodejs.org/en/), [Express.js](http://expressjs.com/), [Multer](https://www.npmjs.com/package/multer), and [Pug](https://pugjs.org/api/getting-started.html) package
 
 ## Instructions
 
